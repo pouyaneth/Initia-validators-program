@@ -1,0 +1,32 @@
+##**Snapshot download:**
+
+
+```sudo apt install snapd -y
+
+sudo snap install lz4
+
+sudo systemctl stop initiad
+
+wget -O initia_202803.tar.lz4 https://snapshots.polkachu.com/testnet-snapshots/initia/initia_202803.tar.lz4 --inet4-only
+sudo systemctl restart initiad```
+
+cp ~/.initia/data/priv_validator_state.json  ~/.initia/priv_validator_state.json
+
+initiad tendermint unsafe-reset-all --home $HOME/.initia --keep-addr-book
+
+mv $HOME/.initia/priv_validator_state.json.backup $HOME/.initia/data/priv_validator_state.json
+
+lz4 -c -d initia_202803.tar.lz4  | tar -x -C $HOME/.initia
+
+cp ~/.initia/priv_validator_state.json  ~/.initia/data/priv_validator_state.json
+```
+
+
+
+*Find the latset snapshot from the Initia discord and download it*
+
+```sudo systemctl restart initiad && sudo journalctl -u initiad -f -o cat```
+
+```initiad status | jq```
+
+*check the status, if you got False everything is fine, other than that try to change peers and snapshot.*
