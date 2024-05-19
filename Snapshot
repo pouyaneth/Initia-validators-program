@@ -1,7 +1,7 @@
-##**Snapshot download:**
+##Snapshot download:
 
 
-```sudo apt install snapd -y
+sudo apt install snapd -y
 
 sudo snap install lz4
 
@@ -19,7 +19,7 @@ mv $HOME/.initia/priv_validator_state.json.backup $HOME/.initia/data/priv_valida
 lz4 -c -d initia_202803.tar.lz4  | tar -x -C $HOME/.initia
 
 cp ~/.initia/priv_validator_state.json  ~/.initia/data/priv_validator_state.json
-```
+
 
 
 
