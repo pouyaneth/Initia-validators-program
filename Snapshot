@@ -1,4 +1,4 @@
-##Snapshot download:
+#Snapshot download:
 
 
 sudo apt install snapd -y
@@ -23,10 +23,10 @@ cp ~/.initia/priv_validator_state.json  ~/.initia/data/priv_validator_state.json
 
 
 
-*Find the latset snapshot from the Initia discord and download it*
+Find the latset snapshot from the Initia discord and download it
 
-```sudo systemctl restart initiad && sudo journalctl -u initiad -f -o cat```
+sudo systemctl restart initiad && sudo journalctl -u initiad -f -o cat
 
-```initiad status | jq```
+initiad status | jq
 
 *check the status, if you got False everything is fine, other than that try to change peers and snapshot.*
