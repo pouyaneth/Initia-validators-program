@@ -92,8 +92,8 @@ initiad config set client keyring-backend os
 
 
 
-```wget https://initia.s3.ap-southeast-1.amazonaws.com/initiation-1/genesis.json -O $HOME/.initia/config/genesis.json
-```
+```wget https://initia.s3.ap-southeast-1.amazonaws.com/initiation-1/genesis.json -O $HOME/.initia/config/genesis.json```
+
 
 
 
@@ -172,14 +172,14 @@ GRPC_WEB_PORT=9091
 
 
 
-```sed -i -e "s/^minimum-gas-prices *=.*/minimum-gas-prices = \"0.15uinit,0.01uusdc\"/" $HOME/.initia/config/app.toml
-```
+```sed -i -e "s/^minimum-gas-prices *=.*/minimum-gas-prices = \"0.15uinit,0.01uusdc\"/" $HOME/.initia/config/app.toml```
 
 
 
 
-```sed -i "s/^indexer *=.*/indexer = \"kv\"/" $HOME/.initia/config/config.toml
-```
+
+```sed -i "s/^indexer *=.*/indexer = \"kv\"/" $HOME/.initia/config/config.toml```
+
 
 
 
@@ -253,12 +253,12 @@ cp ~/.initia/priv_validator_state.json  ~/.initia/data/priv_validator_state.json
 
 
 
-```sudo systemctl restart initiad && sudo journalctl -u initiad -f -o cat
-```
+```sudo systemctl restart initiad && sudo journalctl -u initiad -f -o cat```
 
 
-```initiad status | jq
-```
+
+```initiad status | jq```
+
 
 
 *check the status, if you got False everything is fine, other than that try to change peers and snapshot.*
@@ -281,8 +281,8 @@ cp ~/.initia/priv_validator_state.json  ~/.initia/data/priv_validator_state.json
 
 
 
-```initiad keys add $WALLET_NAME
-```
+```initiad keys add $WALLET_NAME```
+
 
 *dont remember to save your recovery phrase*
 
@@ -297,8 +297,8 @@ cp ~/.initia/priv_validator_state.json  ~/.initia/data/priv_validator_state.json
 
 
 
-```initiad keys add --recover $WALLET_NAME
-```
+```initiad keys add --recover $WALLET_NAME```
+
 
 
 
@@ -324,8 +324,8 @@ https://discord.gg/initia
 
 
 
-```initiad q bank balances $(initiad keys show $WALLET_NAME -a)
-```
+```initiad q bank balances $(initiad keys show $WALLET_NAME -a)```
+
 
 
 
@@ -372,8 +372,8 @@ https://discord.gg/initia
 
 
 
-```initiad tx mstaking delegate $(initiad keys show wallet --bech val -a)  5000000uinit --from wallet --gas-adjustment 1.4 --gas auto --gas-prices 0.15uinit --node=http://localhost:26657 -y
-```
+```initiad tx mstaking delegate $(initiad keys show wallet --bech val -a)  5000000uinit --from wallet --gas-adjustment 1.4 --gas auto --gas-prices 0.15uinit --node=http://localhost:26657 -y```
+
 
 
 
@@ -387,8 +387,8 @@ https://discord.gg/initia
 
 
 
-```initiad tx gov vote 20 yes --from wallet --chain-id initiation-1 --gas-adjustment 1.4 --gas auto --gas-prices 0.15uinit --node=http://localhost:26657 -y
-```
+```initiad tx gov vote 20 yes --from wallet --chain-id initiation-1 --gas-adjustment 1.4 --gas auto --gas-prices 0.15uinit --node=http://localhost:26657 -y```
+
 
 
 
