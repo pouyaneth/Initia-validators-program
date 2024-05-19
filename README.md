@@ -398,6 +398,116 @@ https://discord.gg/initia
 
 
 
+##**Oracle:**
+
+
+
+```cd $HOME
+rm -rf slinky
+git clone https://github.com/skip-mev/slinky.git
+cd slinky
+git checkout v0.4.3
+git switch -c v0.4.3
+```
+
+
+
+```make build```
+
+
+
+```mv build/slinky /usr/local/bin/```
+
+
+
+
+```sudo tee /etc/systemd/system/slinkyd.service > /dev/null <<EOF
+[Unit]
+Description=Initia Slinky Oracle
+After=network-online.target
+
+[Service]
+User=$USER
+ExecStart=$(which slinky) --oracle-config-path $HOME/slinky/config/core/oracle.json --market-map-endpoint 127.0.0.1:15090
+Restart=on-failure
+RestartSec=30
+LimitNOFILE=65535
+  
+[Install]
+WantedBy=multi-user.target
+EOF
+```
+
+
+
+
+
+```sudo systemctl daemon-reload
+sudo systemctl enable slinkyd.service
+sudo systemctl restart slinkyd.service
+
+journalctl -fu slinkyd --no-hostname
+```
+
+
+
+
+
+
+```nano /root/.initia/config/app.toml```
+
+
+*go to oracle section and change the parameteres with these:*
+
+
+
+enabled = "true"
+oracle_address = "127.0.0.1:8080"
+client_timeout = "500ms"
+
+*ctrl + x* then *y* and *enter*
+
+
+
+
+*Exrecute this*
+
+
+```cd
+sudo systemctl daemon-reload
+sudo systemctl restart initiad
+sudo systemctl restart slinkyd.service
+sudo journalctl -u initiad.service -f --no-hostname -o cat
+```
+
+
+
+
+
+*Check the validator status*
+
+
+
+
+
+```initiad q mstaking validator $(initiad keys show $WALLET_NAME --bech val -a)```
+
+
+
+
+##*Well done*
+
+
+
+*Fill the form*
+
+
+
+https://docs.google.com/forms/d/e/1FAIpQLSc09Kl6mXyZHOL12n_6IUA8MCcL6OqzTqsoZn9N8gpptoeU_Q/viewform?usp=send_form
+
+
+
+
 
 
 
