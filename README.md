@@ -1,7 +1,7 @@
 #Initia-validator-node
 
 
-System requirements:
+##System requirements:
 
 CPU: 4 cores
 Memory: 16GB RAM
@@ -9,12 +9,12 @@ Disk: 1 TB SSD Storage
 Bandwidth: 100 Mbps
 
 
-Install prerequisities:
+##Install prerequisities:
 
 sudo apt update && sudo apt upgrade -y
 sudo apt install curl git jq build-essential gcc unzip wget lz4 -y
 
-Install Go:
+##Install Go:
 
 cd $HOME && \
 ver="1.22.0" && \
